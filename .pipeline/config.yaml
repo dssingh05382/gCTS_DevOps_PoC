@@ -1,0 +1,17 @@
+general:
+stages:
+  gctsDeploy:
+    host: 'https://fc-pun01-hana.india.rapidigm.com:8001'
+    client: '300'
+    abapCredentialsId: 'ABAPUserPasswordCredentialsId'
+    repository: 'Dev'
+  gctsExecuteABAPUnitTests:
+    host: 'https://fc-pun01-hana.india.rapidigm.com:8001'
+    client: '300'
+    abapCredentialsId: 'ABAPUserPasswordCredentialsId'
+    repository: 'Dev'
+  gctsRollback:
+    host: 'https://fc-pun01-hana.india.rapidigm.com:8001'
+    client: '300'
+    abapCredentialsId: 'ABAPUserPasswordCredentialsId'
+    repository: 'Dev'
