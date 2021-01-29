@@ -1,5 +1,5 @@
 general:
-  verbose:true
+  set verbose: true
 stage:
   gctsExecuteABAPUnitTests:
     host: 'https://fc-pun01-hana.india.rapidigm.com:8001'
