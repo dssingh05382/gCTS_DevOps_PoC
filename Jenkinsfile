@@ -1,12 +1,10 @@
 @Library(['piper-lib', 'piper-lib-os']) _
-
-stage('prepare') {
+stage('Prepare') {
     node {
       checkout scm
       setupCommonPipelineEnvironment script:this  
     }
 }
-
 stage('Test') {
    node {
      dockerExecute(script: this, dockerImage: abaplint/abaplint'){
@@ -16,8 +14,7 @@ stage('Test') {
        currentBuild.result = 'SUCCESS'                  
      }
    }
-}
-  
+} 
 stage('Deploy') {
     node {
       gctsDeploy(
@@ -28,8 +25,7 @@ stage('Deploy') {
           repository: 'DEV003',
         )    
     }
-}
-  
+} 
 stage('Execute ABAP Unit Tests') {
     node { 
         gctsExecuteABAPUnitTests(
@@ -40,8 +36,7 @@ stage('Execute ABAP Unit Tests') {
             repository: 'DEV003',
         )    
     }
-}
-    
+}   
 stage('Rollback') {
     node { 
         gctsRollback(
