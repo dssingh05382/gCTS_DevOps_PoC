@@ -1,7 +1,5 @@
 general:
-  gitSshKeyCredentialsId: 'ABAPUserPasswordCredentialsId'
   verbose: true
-  productiveBranch: master
 
 stage:
   gctsExecuteABAPUnitTests:
