@@ -1,11 +1,11 @@
 @Library(['piper-lib', 'piper-lib-os']) _
-    stage('Prepare') {
+    stage('prepare') {
         node {
           checkout scm
           setupCommonPipelineEnvironment script:this  
         }
     }
-    stage('Test') {
+    stage('test') {
        node {
          dockerExecute(script: this, dockerImage: abaplint/abaplint'){
            echo 'Running abaplint docker'
@@ -15,38 +15,3 @@
            }
          }
     }
-                       
-stage('Deploy') {
-    node {
-      gctsDeploy(
-          script: this,
-          host: 'https://fc-pun01-hana.india.rapidigm.com:8001',
-          client: '300',
-          abapCredentialsId: 'ABAPUserPasswordCredentialsId',
-          repository: 'DEV003',
-        )    
-    }
-} 
-stage('Execute ABAP Unit Tests') {
-    node { 
-        gctsExecuteABAPUnitTests(
-            script: this,
-            host: 'https://fc-pun01-hana.india.rapidigm.com:8001',
-            client: '300',
-            abapCredentialsId: 'ABAPUserPasswordCredentialsId',
-            repository: 'DEV003',
-        )    
-    }
-}   
-stage('Rollback') {
-    node { 
-        gctsRollback(
-            script: this,
-            host: 'https://fc-pun01-hana.india.rapidigm.com:8001',
-            client: '300',
-            abapCredentialsId: 'ABAPUserPasswordCredentialsId',
-            repository: 'DEV003',
-        )  
-    }
-}  
-                   
