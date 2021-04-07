@@ -1,5 +1,8 @@
 general:
-  set verbose: true
+  gitSshKeyCredentialsId: 'ABAPUserPasswordCredentialsId'
+  verbose: true
+  productiveBranch: master
+
 stage:
   gctsExecuteABAPUnitTests:
     host: 'https://fc-pun01-hana.india.rapidigm.com:8001'
