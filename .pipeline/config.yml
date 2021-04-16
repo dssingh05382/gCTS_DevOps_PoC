@@ -1,9 +1,4 @@
 general:
-  verbose: true
-
-stage:
-  gctsExecuteABAPUnitTests:
-    host: 'https://fc-pun01-hana.india.rapidigm.com:8001'
-    client: '300'
-    abapCredentialsId: 'ABAPUserPasswordCredentialsId'
-    repository: 'DEV003'
+     gitSshKeyCredentialsId: 'ABAPUserPasswordCredentialsId'
+     verbose: true
+     productiveBranch: develop
