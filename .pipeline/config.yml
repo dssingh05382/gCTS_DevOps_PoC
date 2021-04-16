@@ -1,4 +1,4 @@
 general:
      gitSshKeyCredentialsId: 'ABAPUserPasswordCredentialsId'
      verbose: true
-     productiveBranch: develop
+     productiveBranch: master
