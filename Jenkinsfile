@@ -1,7 +1,7 @@
 @Library('piper-lib-os') _
-
 node() {
-  stage('Deploy') {
-    echo 'Running...'.
-  }
-  
+    stage('prepare') {
+        checkout scm
+        setupCommonPipelineEnvironment script:this
+    }
+}
