@@ -1,0 +1,23 @@
+{
+	  "global": {
+	    "files": "/src/**/*.*",
+	    "skipGeneratedGatewayClasses": true,
+	    "skipGeneratedPersistentClasses": true,
+	    "skipGeneratedFunctionGroups": true
+	  },
+	  "syntax": {
+	    "version": "v755",
+	    "errorNamespace": "^(Z|Y)"
+	  },
+	  "rules": {
+	    "keyword_case": {
+	      "style": "upper",
+	    },
+	    "line_length": {
+	      "length": 20
+	    },
+	    "indentation": {
+	      "ignoreExceptions": true,
+	      "alignTryCatch": false
+           }
+}
