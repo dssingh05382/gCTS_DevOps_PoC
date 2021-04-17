@@ -1,7 +1,17 @@
-@Library('piper-lib-os') _
-node() {
+@Library(['piper-lib', 'piper-lib-os']) _
     stage('prepare') {
-        checkout scm
-        setupCommonPipelineEnvironment script:this
+        node {
+          checkout scm
+          setupCommonPipelineEnvironment script:this  
+        }
     }
-}
+    stage('test') {
+       node {
+         dockerExecute(script: this, dockerImage: abaplint/abaplint'){
+           echo 'Running abaplint docker'
+           sh 'npm install -g @abaplint/cli'
+           sh 'abaplint'
+           currentBuild.result = 'SUCCESS'                  
+           }
+         }
+    }
