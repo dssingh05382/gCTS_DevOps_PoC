@@ -7,7 +7,7 @@
     }
     stage('test') {
        node {
-         dockerExecute(script: this, dockerImage: abaplint/abaplint'){
+         dockerExecute(script: this, dockerImage: 'abaplint/abaplint'){
            echo 'Running abaplint docker'
            sh 'npm install -g @abaplint/cli'
            sh 'abaplint'
